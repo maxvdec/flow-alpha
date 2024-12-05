@@ -1,0 +1,13 @@
+% Create a script that stores 1 in address 0x0000 and 2 in address 0x0001
+
+!lang flow-alpha
+
+@store($i1, $i2)
+    mov $i1, $i2
+@end
+
+start:
+    mov r1, 0x0000
+    mov r2, 0x0001
+    @store &r1, 1
+    @store &r2, 2

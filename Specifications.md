@@ -64,7 +64,7 @@ The ROM is divided in the following sections:
 
 - `jz ADDR` -> Jumps to an specific address if the past result is 0
 - `jgr ADDR` -> Jumps to an specific address if the past result is greater than 0
-- `jgl ADDR` -> Jumpts to an specific address if the past result is less than 0
+- `jls ADDR` -> Jumpts to an specific address if the past result is less than 0
 - `halt` -> Halts the processor
 - `reset` -> Resets the processor
 - `nothing` -> Does nothing
@@ -83,7 +83,7 @@ The ROM is divided in the following sections:
 The Flow Computer Assembly Language, also has support for some other features:
 
 - **Labels**
-Labels are indicated with the syntax `name:` and usually contain code. They run until the keyword `end`.
+Labels are indicated with the syntax `name:` and contain code.
 - **Macros**
 Macros are defined with the `@macro(args)` syntax and they expand to custom instructions.
 - **Inclusions**
@@ -96,6 +96,8 @@ Metadata is the one that defined some information about the targeting program. T
     They mean the current langauge that we are using (the platform): `!lang flow-alpha`
     - **Origin metadata**
     They indicate the point where the program is going to be stored: `!origin ADDR`
+- **Calls to labels**
+Calls to labels are typed `(label)` and they allow you to jump to a part of the code
 
 ### Examples
 
@@ -107,23 +109,23 @@ Metadata is the one that defined some information about the targeting program. T
 !origin 0x081200
 
 % Define a macro that turns a led on
-@turn_led(port)
+@turn_led($i1)
 
 % Store 1 to our register
-mov r1, #1
+mov r1, 1
 
 % Pass that value to port 0xF200
-out 0xF200, r1
+out $i1, r1
 
 @end
 
 start:
-    mov r0, #10
+    mov r0, 10
 loop:
     r0--
 
     ; If the last expression didn't output '0' then we continue
-    jnz loop
+    jnz (loop)
     
     turn_led 0x0F200
 
@@ -157,13 +159,14 @@ Flow Computer Hexadecimal is the format (`.fch`) with the one that code is runne
 | `out`        | 0x23   | Basic                |
 | `jz`         | 0x24   | Extended             |
 | `jgr`        | 0x25   | Extended             |
-| `jgl`        | 0x26   | Extended             |
+| `jls`        | 0x26   | Extended             |
 | `halt`       | 0x27   | Extended             |
 | `reset`      | 0x28   | Extended             |
 | `nothing`    | 0x29   | Extended             |
 | `!origin`    | 0x2A   | Metadata             |
 | Inmediat Number Marker | 0xFD  | Special     |
 | Inmediat Register Marker | 0xFE| Special     |
+| Inmediat Reference Marker | 0xFF | Special   |
 
 
 For instance, the code we saw will be translated to:
@@ -193,7 +196,7 @@ Example:
 !include "somefile.fca"
 
 some_function:
-    mov r1, #20
+    mov r1, 20
 ```
 Will turn to:
 ```fca
@@ -201,7 +204,7 @@ Will turn to:
 !lang flow-alpha
 
 some_function:
-    mov r1, #20
+    mov r1, 20
 somefile_function:
     r1--
 ```

@@ -1,0 +1,11 @@
+# Ignore FCA files
+fca/compiler/bin/*
+fca/compiler/build/*
+fca/compiler/CMakeFiles/*
+fca/compiler/cmake-build-debug/*
+fca/compiler/cmake-build-release/*
+fca/compiler/.clang-format
+fca/compiler/cmake_install.cmake
+fca/compiler/CMakeCache.txt
+fca/compiler/compile_commands.json
+fca/compiler/.cache/
