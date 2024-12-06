@@ -18,10 +18,10 @@ The Flow Alpha is intended to be super minimal, thus his specifications are very
 The RAM of the Flow Alpha is divided into these cathegories:
 
 - **0x0000 - 0x00FF** Stack (255 bytes)
-- **0x00FF - 0xFF9B** General Purpose RAM (65180 bytes)
-- **0xFF9B - 0xFFEB** General Spaces (80 bytes / 20 Spaces -> 4 bytes per space)
-- **0xFFEC** Stack Pointer (1 byte)
-- **0xFFED - 0xFFEF** Program Counter (3 bytes)
+- **0x00FF - 0xFF99** General Purpose RAM (65180 bytes)
+- **0xFF9A - 0xFFEA** General Spaces (80 bytes / 20 Spaces -> 4 bytes per space)
+- **0xFFEB** Stack Pointer (1 byte)
+- **0xFFEE - 0xFFEE** Program Counter (3 bytes)
 - **0xFFEF - 0xFFFF** I/O Addresses (16 bytes / 16 pins -> 1 byte per pin)
 
 === ROM -> **960KB** ===
@@ -65,8 +65,7 @@ RAM and ROM of 1024KB. Or 1MB of storage
 
 ### Registers and Flags
 
-- `r0` to `r6` -> General use registers
-- `r7` -> (SP) Stack Pile base register
+- `r0` to `r7` -> General use registers
 - `g10` to `g30` -> General spaces in RAM for storing values.
 - `ZF` -> Zero Flag. Indicates that the last result is 0
 - `CF` -> Indicates if there was carry

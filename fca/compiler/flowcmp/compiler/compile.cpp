@@ -21,7 +21,7 @@
 
 void compile(Program program, std::string output) {
     std::vector<uint8_t> binary;
-    int offset = 0;
+    int offset = 0x10000;
     std::unordered_map<std::string, int> labels = {};
     bool offset_instruction = false;
 
@@ -41,7 +41,7 @@ void compile(Program program, std::string output) {
         } else {
             if (!offset_instruction) {
                 binary.push_back(0x2A);
-                binary.push_back(0x00);
+                binary.push_back(0x10);
                 binary.push_back(0x00);
                 binary.push_back(0x00);
                 offset_instruction = true;
@@ -413,6 +413,16 @@ void compile(Program program, std::string output) {
                     binary.push_back(0xFF);
                     binary.push_back(
                         std::stoi(program.body[i + 1].value.substr(2)));
+                } else if (program.body[i + 1].type ==
+                           TokenType::LabelReference) {
+                    std::string label = program.body[i + 1].value;
+                    if (labels.find(label) == labels.end()) {
+                        fca::error("Label not found: " + label);
+                    }
+                    int labelOffset = labels[label];
+                    std::vector<uint8_t> number = int_to_bytes(labelOffset);
+                    binary.insert(binary.end(), number.begin(), number.end());
+                    i++;
                 }
             case TokenType::In:
                 binary.push_back(0x22);
@@ -471,6 +481,16 @@ void compile(Program program, std::string output) {
                     binary.push_back(0xFF);
                     binary.push_back(
                         std::stoi(program.body[i + 1].value.substr(2)));
+                } else if (program.body[i + 1].type ==
+                           TokenType::LabelReference) {
+                    std::string label = program.body[i + 1].value;
+                    if (labels.find(label) == labels.end()) {
+                        fca::error("Label not found: " + label);
+                    }
+                    int labelOffset = labels[label];
+                    std::vector<uint8_t> number = int_to_bytes(labelOffset);
+                    binary.insert(binary.end(), number.begin(), number.end());
+                    i++;
                 }
                 i++;
                 break;
@@ -486,6 +506,16 @@ void compile(Program program, std::string output) {
                     binary.push_back(0xFF);
                     binary.push_back(
                         std::stoi(program.body[i + 1].value.substr(2)));
+                } else if (program.body[i + 1].type ==
+                           TokenType::LabelReference) {
+                    std::string label = program.body[i + 1].value;
+                    if (labels.find(label) == labels.end()) {
+                        fca::error("Label not found: " + label);
+                    }
+                    int labelOffset = labels[label];
+                    std::vector<uint8_t> number = int_to_bytes(labelOffset);
+                    binary.insert(binary.end(), number.begin(), number.end());
+                    i++;
                 }
                 i++;
                 break;
@@ -501,6 +531,16 @@ void compile(Program program, std::string output) {
                     binary.push_back(0xFF);
                     binary.push_back(
                         std::stoi(program.body[i + 1].value.substr(2)));
+                } else if (program.body[i + 1].type ==
+                           TokenType::LabelReference) {
+                    std::string label = program.body[i + 1].value;
+                    if (labels.find(label) == labels.end()) {
+                        fca::error("Label not found: " + label);
+                    }
+                    int labelOffset = labels[label];
+                    std::vector<uint8_t> number = int_to_bytes(labelOffset);
+                    binary.insert(binary.end(), number.begin(), number.end());
+                    i++;
                 }
                 i++;
                 break;

@@ -129,6 +129,30 @@ flowalpha/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/build
 .PHONY : flowalpha/fast
 
+flowalpha/interface/computer.o: flowalpha/interface/computer.c.o
+.PHONY : flowalpha/interface/computer.o
+
+# target to build an object file
+flowalpha/interface/computer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/interface/computer.c.o
+.PHONY : flowalpha/interface/computer.c.o
+
+flowalpha/interface/computer.i: flowalpha/interface/computer.c.i
+.PHONY : flowalpha/interface/computer.i
+
+# target to preprocess a source file
+flowalpha/interface/computer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/interface/computer.c.i
+.PHONY : flowalpha/interface/computer.c.i
+
+flowalpha/interface/computer.s: flowalpha/interface/computer.c.s
+.PHONY : flowalpha/interface/computer.s
+
+# target to generate assembly for a file
+flowalpha/interface/computer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/interface/computer.c.s
+.PHONY : flowalpha/interface/computer.c.s
+
 flowalpha/main.o: flowalpha/main.c.o
 .PHONY : flowalpha/main.o
 
@@ -153,6 +177,78 @@ flowalpha/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/main.c.s
 .PHONY : flowalpha/main.c.s
 
+flowalpha/memory/comp_mem.o: flowalpha/memory/comp_mem.c.o
+.PHONY : flowalpha/memory/comp_mem.o
+
+# target to build an object file
+flowalpha/memory/comp_mem.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/memory/comp_mem.c.o
+.PHONY : flowalpha/memory/comp_mem.c.o
+
+flowalpha/memory/comp_mem.i: flowalpha/memory/comp_mem.c.i
+.PHONY : flowalpha/memory/comp_mem.i
+
+# target to preprocess a source file
+flowalpha/memory/comp_mem.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/memory/comp_mem.c.i
+.PHONY : flowalpha/memory/comp_mem.c.i
+
+flowalpha/memory/comp_mem.s: flowalpha/memory/comp_mem.c.s
+.PHONY : flowalpha/memory/comp_mem.s
+
+# target to generate assembly for a file
+flowalpha/memory/comp_mem.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/memory/comp_mem.c.s
+.PHONY : flowalpha/memory/comp_mem.c.s
+
+flowalpha/process/execute.o: flowalpha/process/execute.c.o
+.PHONY : flowalpha/process/execute.o
+
+# target to build an object file
+flowalpha/process/execute.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/process/execute.c.o
+.PHONY : flowalpha/process/execute.c.o
+
+flowalpha/process/execute.i: flowalpha/process/execute.c.i
+.PHONY : flowalpha/process/execute.i
+
+# target to preprocess a source file
+flowalpha/process/execute.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/process/execute.c.i
+.PHONY : flowalpha/process/execute.c.i
+
+flowalpha/process/execute.s: flowalpha/process/execute.c.s
+.PHONY : flowalpha/process/execute.s
+
+# target to generate assembly for a file
+flowalpha/process/execute.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/process/execute.c.s
+.PHONY : flowalpha/process/execute.c.s
+
+flowalpha/process/load.o: flowalpha/process/load.c.o
+.PHONY : flowalpha/process/load.o
+
+# target to build an object file
+flowalpha/process/load.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/process/load.c.o
+.PHONY : flowalpha/process/load.c.o
+
+flowalpha/process/load.i: flowalpha/process/load.c.i
+.PHONY : flowalpha/process/load.i
+
+# target to preprocess a source file
+flowalpha/process/load.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/process/load.c.i
+.PHONY : flowalpha/process/load.c.i
+
+flowalpha/process/load.s: flowalpha/process/load.c.s
+.PHONY : flowalpha/process/load.s
+
+# target to generate assembly for a file
+flowalpha/process/load.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flowalpha.dir/build.make CMakeFiles/flowalpha.dir/flowalpha/process/load.c.s
+.PHONY : flowalpha/process/load.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +258,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... flowalpha"
+	@echo "... flowalpha/interface/computer.o"
+	@echo "... flowalpha/interface/computer.i"
+	@echo "... flowalpha/interface/computer.s"
 	@echo "... flowalpha/main.o"
 	@echo "... flowalpha/main.i"
 	@echo "... flowalpha/main.s"
+	@echo "... flowalpha/memory/comp_mem.o"
+	@echo "... flowalpha/memory/comp_mem.i"
+	@echo "... flowalpha/memory/comp_mem.s"
+	@echo "... flowalpha/process/execute.o"
+	@echo "... flowalpha/process/execute.i"
+	@echo "... flowalpha/process/execute.s"
+	@echo "... flowalpha/process/load.o"
+	@echo "... flowalpha/process/load.i"
+	@echo "... flowalpha/process/load.s"
 .PHONY : help
 
 

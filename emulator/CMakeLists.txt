@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.15)
 
 project(fca_compiler)
 
+set(CMAKE_C_STANDARD 23)
+
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
 file(GLOB_RECURSE FLOWCMP_SOURCES ${CMAKE_SOURCE_DIR}/flowalpha/*.c)

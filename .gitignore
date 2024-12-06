@@ -1,5 +1,5 @@
 # Ignore FCA files
-fca/compiler/bin/*
+fca/compiler/bin/
 fca/compiler/build/*
 fca/compiler/CMakeFiles/
 fca/compiler/cmake-build-debug/*
@@ -11,7 +11,7 @@ fca/compiler/compile_commands.json
 fca/compiler/.cache/
 
 # Ignore Emulator files
-emulator/bin/*
+emulator/bin/
 emulator/build/*
 emulator/CMakeFiles/*
 emulator/cmake-build-debug/*
