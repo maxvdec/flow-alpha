@@ -12,8 +12,10 @@ syn keyword fcaCommands
     \ halt reset nothing
 
 syn keyword fcaRegisters
-    \ r0 r1 r2 r3 r4 r5 r6 r7
-syn match fcaReferencedRegisters "&\s*\<\%(r0\|r1\|r2\|r3\|r4\|r5\|r6\|r7\)\>"
+    \ r0 r1 r2 r3 r4 r5 r6 r7 g10 g11 g12 g13 g14 g15 g16 g17 g18 g19 g20 g21 g22 g23 g24 g25 g26 g27 g28 g29 g30
+
+syn match fcaReferencedRegisters "&\s*\<\%(r0\|r1\|r2\|r3\|r4\|r5\|r6\|r7\|g10\|g11\|g12\|g13\|g14\|g15\|g16\|g17\|g18\|g19\|g20\|g21\|g22\|g23\|g24\|g25\|g26\|g27\|g28\|g29\|g30\)\>"
+
 
 syn match fcaComment "%.*$"
 syn match fcaLabel "^\s*[a-zA-Z_]\w*:"

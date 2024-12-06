@@ -100,7 +100,7 @@ std::vector<Token> tokenize(const std::string &str) {
             } else if (chain.starts_with("r")) {
                 if (chain == "r1" || chain == "r2" || chain == "r0" ||
                     chain == "r3" || chain == "r4" || chain == "r5" ||
-                    chain == "r6" || chain == "r7") {
+                    chain == "r6" || chain == "r7" || chain.starts_with("g")) {
                     tokens.push_back({TokenType::Register, chain});
                 } else {
                     std::cout << "Could not match token: " << chain

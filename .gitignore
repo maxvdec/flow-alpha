@@ -1,7 +1,7 @@
 # Ignore FCA files
 fca/compiler/bin/*
 fca/compiler/build/*
-fca/compiler/CMakeFiles/*
+fca/compiler/CMakeFiles/
 fca/compiler/cmake-build-debug/*
 fca/compiler/cmake-build-release/*
 fca/compiler/.clang-format
@@ -9,3 +9,17 @@ fca/compiler/cmake_install.cmake
 fca/compiler/CMakeCache.txt
 fca/compiler/compile_commands.json
 fca/compiler/.cache/
+
+# Ignore Emulator files
+emulator/bin/*
+emulator/build/*
+emulator/CMakeFiles/*
+emulator/cmake-build-debug/*
+emulator/cmake-build-release/*
+emulator/.clang-format
+emulator/cmake_install.cmake
+emulator/CMakeCache.txt
+emulator/compile_commands.json
+emulator/.cache/
+
+

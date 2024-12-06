@@ -13,27 +13,21 @@ The Flow Alpha is intended to be super minimal, thus his specifications are very
 
 ## Memory and Addresses
 
-=== RAM -> **512KB** ===
+=== RAM -> **64KB** ===
 
-We have 512KB of *Random Access Memory* for program uses. This will erase itself when powered off.
-The RAM is divided in the following sections:
+The RAM of the Flow Alpha is divided into these cathegories:
 
-- 0x00000 - 0x07FFF -> **Program Memory / PM** (32KB)
-- 0x08000 - 0x0FFFF -> **Data Section** (64KB)
-    - 0x0FF00 - 0x0FFFF -> **Stack Usage** (256 bytes)
-    - 0x02000 - 0x07FFF -> **Heap** (24KB, can grow)
-- 0x0F000 - 0x0F7FF -> **Input and Output** (~4KB)
+- **0x0000 - 0x00FF** Stack (255 bytes)
+- **0x00FF - 0xFF9B** General Purpose RAM (65180 bytes)
+- **0xFF9B - 0xFFEB** General Spaces (80 bytes / 20 Spaces -> 4 bytes per space)
+- **0xFFEC** Stack Pointer (1 byte)
+- **0xFFED - 0xFFEF** Program Counter (3 bytes)
+- **0xFFEF - 0xFFFF** I/O Addresses (16 bytes / 16 pins -> 1 byte per pin)
 
-=== ROM -> **64KB** ===
+=== ROM -> **960KB** ===
 
-We have also 64KB of *Read-Only Memory* for data. Is permanent.
-The ROM is divided in the following sections:
-
-- 0x080000 - 0x0801FF -> **Bootloader** (512 bytes)
-- 0x080200 - 0x0807FF -> **BIOS** (1.5KB)
-- 0x080800 - 0x080CFF -> **Basic Operating System (coreFlowOS)** (2KB)
-- 0x080D00 - 0x0811FF -> **BASIC and FCP** (2KB)
-- 0x081200 - 0x08FFFFF -> **User space (Anything)** (~58KB)
+The ROM of the Flow Alpha is totally free of use and ranges from **0x10000** to **0xFFFFF** for a total storage between
+RAM and ROM of 1024KB. Or 1MB of storage
 
 ## The instructions and structure of Flow Computer Assembly
 
@@ -73,6 +67,7 @@ The ROM is divided in the following sections:
 
 - `r0` to `r6` -> General use registers
 - `r7` -> (SP) Stack Pile base register
+- `g10` to `g30` -> General spaces in RAM for storing values.
 - `ZF` -> Zero Flag. Indicates that the last result is 0
 - `CF` -> Indicates if there was carry
 - `SF` -> Indicates if the result was negative
